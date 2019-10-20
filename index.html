@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Portfolio</title>
+</head>
+<body>
+  <div class="wrapper" itemscope itemtype="http://schema.org/Person">
+    <img src="./assets/person.png" width="128"  height="128" itemprop="image" alt="photo">
+    <h2><span itemprop="name">Askhat Zhamabayev</span></h2>
+    <p><span>Github: jamask</span></p>
+    <p><span>Facebook: jam.askhat</span></p>
+    <div class="clear"></div>
+    
+    <button type="button" class="collapsible">Education</button>
+    <div class="content">
+      <p>-School-<br>1992-2003</p>  
+      <p>-University-<br>2003-2007</p>
+      <p>-RSSchool-<br>2019-2020</p>
+    </div>
+
+    <h3>Projects</h3>
+    <div class="carousel">
+        <div class="items-container">
+          <div class="item active">
+            <div class="description">
+              <button type="button" class="show-hide-desc">show description</button>
+              <div class="project-title">
+                theyalow
+                <ul>
+                    <li>Responsive</li>
+                    <li>SVG</li>
+                    <li>The cool, the minimal</li>
+                  </ul>
+              </div>
+              <img class="project-image" src="./assets/yalow.jpg" alt="theyalow">
+            </div>
+          </div>
+          <div class="item">
+            <div class="description">
+              <button type="button" class="show-hide-desc">show description</button>
+              <div class="project-title">
+                repair-design-project
+                <ul>
+                    <li>Responsive</li>
+                    <li>SVG</li>
+                    <li>Slider + pagination via js</li>
+                  </ul>
+              </div>
+              <img class="project-image" src="./assets/rdp.jpg" alt="repair-design-project">
+            </div>
+          </div>
+        </div>
+        <div class="control left">
+          <div class="arrow left">&lt;</div>
+        </div>
+        <div class="control right">
+          <div class="arrow right">&gt;</div>
+        </div>
+      </div>
+
+  </div>
+
+  <iframe src="./projects/theyalow/index.html" frameborder="0" class="yalow"></iframe>
+  <iframe src="./projects/rdp/index.html" frameborder="0" class="rdp"></iframe>
+
+  <button type="button" class="btn" id="type">Mobile</button>
+  <button type="button" class="btn" id="back">Back</button>
+
+<script src="script.js"></script>
+</body>
+</html>
