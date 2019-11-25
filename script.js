@@ -1,7 +1,7 @@
-// expansion panel -----------------------//
 
-let coll = document.querySelector('.collapsible');
+// collapse panel //
 
+const coll = document.querySelector('.collapsible');
 coll.addEventListener('click', function() {
   this.classList.toggle('open');
   let content = this.nextElementSibling;
@@ -12,28 +12,24 @@ coll.addEventListener('click', function() {
   }
 });
 
-let desc = document.querySelectorAll('.show-hide-desc');
-let isHide = true;
+// show/hide description in mobile size //
+
+const desc = document.querySelectorAll('.show-hide-desc');
 
 for (let i = 0; i < desc.length; i++) {
   desc[i].addEventListener('click', function() {
-    let content = this.nextElementSibling;
-    if (content.style.display === 'block') {
-      content.style.display = 'none';
-    } else {
-      content.style.display = 'block';
-    }
-    if (isHide) {
-      this.textContent = 'hide description';
-      isHide = false;
-    } else {
-      this.textContent = 'show description';
-      isHide = true;
-    }
+		let content = this.nextElementSibling;
+		if (content.classList.contains('project-title-hide')) {
+			content.classList.remove('project-title-hide');
+			this.textContent = 'hide description';
+		} else {
+			content.classList.add('project-title-hide');
+			this.textContent = 'show description';
+		}
   });
 }
 
-// carousel -----------------------//
+// carousel //
 
 let items = document.querySelectorAll('.carousel .item');
 let currentItem = 0;
@@ -83,6 +79,8 @@ document.querySelector('.control.right').addEventListener('click', function() {
 		nextItem(currentItem);
 	}
 });
+
+// swipe carousel in mobile size //
 
 const swipedetect = (el) => {
   
@@ -173,9 +171,9 @@ const swipedetect = (el) => {
 var el = document.querySelector('.carousel');
 swipedetect(el);
 
+// end carousel //
 
-// show/hide projects -----------------------//
-
+// show/hide projects //
 
 let isProjectOpen = false;
 let projects = document.querySelectorAll('.project-image');
@@ -185,6 +183,7 @@ projects[0].addEventListener('click', function () {
 	isProjectOpen = true;
 	document.querySelector('.yalow').style.display = 'block';
 	document.querySelector('#back').style.display = 'inline-block';
+	document.querySelector('.wrapper').style.display = 'none';
 	if (document.body.clientWidth>640) {
 		document.querySelector('#type').style.display = 'inline-block';
 	}
@@ -194,37 +193,40 @@ projects[1].addEventListener('click', function () {
 	isProjectOpen = true;
 	document.querySelector('.rdp').style.display = 'block';
 	document.querySelector('#back').style.display = 'inline-block';
+	document.querySelector('.wrapper').style.display = 'none';
 	if (document.body.clientWidth>640) {
 		document.querySelector('#type').style.display = 'inline-block';
 	}
 });
 
-document.querySelector('#back').addEventListener('click', function () {
+document.querySelector('#back').addEventListener('click', function (e) {
 	document.querySelector('.yalow').style.display = 'none';
 	document.querySelector('.rdp').style.display = 'none';
 	document.querySelectorAll('.btn').forEach((e) => e.style.display = 'none');
+	document.querySelector('.wrapper').style.display = 'block';
 	isDesktop = true;
+	e.stopPropagation();
 }, false);
 
 document.querySelector('#type').addEventListener('click', function () {
 	if (isDesktop) {
 		document.querySelector('.yalow').style.width = '640px';
-		document.querySelector('.rdp').style.width = '640px';
+		document.querySelector('.rdp').style.width = '375px';
 		document.querySelector('.wrapper').style.display = 'none';
-		document.body.style.backgroundColor = '#666666';
+		document.body.style.backgroundColor = '#ffffff';
 		document.querySelector('#type').textContent = 'Desktop';
 		isDesktop = false;
 	} else {
 		document.querySelector('.yalow').style.width = '100%';
 		document.querySelector('.rdp').style.width = '100%';
-		document.querySelector('.wrapper').style.display = 'block';
+		document.querySelector('.wrapper').style.display = 'none';
 		document.body.style.backgroundColor = '#ffffff';
 		document.querySelector('#type').textContent = 'Mobile';
 		isDesktop = true;
 	}
 });
 
-// touch -------------------//
+// touch //
 
 projects[0].addEventListener('touchstart', function () {
 	isProjectOpen = true;
@@ -244,25 +246,27 @@ projects[1].addEventListener('touchstart', function () {
 	}
 });
 
-document.querySelector('#back').addEventListener('touchstart', function () {
+document.querySelector('#back').addEventListener('touchstart', function (e) {
 	document.querySelector('.yalow').style.display = 'none';
 	document.querySelector('.rdp').style.display = 'none';
 	document.querySelectorAll('.btn').forEach((e) => e.style.display = 'none');
+	document.querySelector('.wrapper').style.display = 'block';
 	isDesktop = true;
+	e.stopPropagation();
 }, false);
 
 document.querySelector('#type').addEventListener('touchstart', function () {
 	if (isDesktop) {
 		document.querySelector('.yalow').style.width = '640px';
-		document.querySelector('.rdp').style.width = '640px';
+		document.querySelector('.rdp').style.width = '375px';
 		document.querySelector('.wrapper').style.display = 'none';
-		document.body.style.backgroundColor = '#666666';
+		document.body.style.backgroundColor = '#ffffff';
 		document.querySelector('#type').textContent = 'Desktop';
 		isDesktop = false;
 	} else {
 		document.querySelector('.yalow').style.width = '100%';
 		document.querySelector('.rdp').style.width = '100%';
-		document.querySelector('.wrapper').style.display = 'block';
+		document.querySelector('.wrapper').style.display = 'none';
 		document.body.style.backgroundColor = '#ffffff';
 		document.querySelector('#type').textContent = 'Mobile';
 		isDesktop = true;
