@@ -192,7 +192,6 @@ h3 {
 
 .project-title {
   padding: 10px;
-  display: inline;
 }
 
 .project-title ul {
@@ -203,6 +202,10 @@ h3 {
   font-size: 16px;
   text-align: left;
   margin-left: 20px;
+}
+
+.project-title-hide {
+  display: inline;
 }
 
 .control {
@@ -291,10 +294,14 @@ h3 {
 
   .project-title {
     position: absolute;
-    display: none;
+    display: inline;
     top: 80px;
     background-color: white;
     color: black;
+  }
+  
+  .project-title-hide {
+    display: none;
   }
 
   .description {
@@ -304,6 +311,4 @@ h3 {
   .show-hide-desc {
     display: inline;
   }
-
-
 }
