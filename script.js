@@ -204,6 +204,7 @@ document.querySelector('#back').addEventListener('click', function (e) {
 	document.querySelector('.rdp').style.display = 'none';
 	document.querySelectorAll('.btn').forEach((e) => e.style.display = 'none');
 	document.querySelector('.wrapper').style.display = 'block';
+	document.body.style.backgroundColor = '#ffffff';
 	isDesktop = true;
 	e.stopPropagation();
 }, false);
@@ -213,7 +214,7 @@ document.querySelector('#type').addEventListener('click', function () {
 		document.querySelector('.yalow').style.width = '640px';
 		document.querySelector('.rdp').style.width = '375px';
 		document.querySelector('.wrapper').style.display = 'none';
-		document.body.style.backgroundColor = '#ffffff';
+		document.body.style.backgroundColor = '#666666';
 		document.querySelector('#type').textContent = 'Desktop';
 		isDesktop = false;
 	} else {
@@ -251,6 +252,7 @@ document.querySelector('#back').addEventListener('touchstart', function (e) {
 	document.querySelector('.rdp').style.display = 'none';
 	document.querySelectorAll('.btn').forEach((e) => e.style.display = 'none');
 	document.querySelector('.wrapper').style.display = 'block';
+	document.body.style.backgroundColor = '#ffffff';
 	isDesktop = true;
 	e.stopPropagation();
 }, false);
@@ -260,7 +262,7 @@ document.querySelector('#type').addEventListener('touchstart', function () {
 		document.querySelector('.yalow').style.width = '640px';
 		document.querySelector('.rdp').style.width = '375px';
 		document.querySelector('.wrapper').style.display = 'none';
-		document.body.style.backgroundColor = '#ffffff';
+		document.body.style.backgroundColor = '#666666';
 		document.querySelector('#type').textContent = 'Desktop';
 		isDesktop = false;
 	} else {
